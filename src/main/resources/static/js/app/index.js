@@ -1,4 +1,4 @@
-vat main = {
+var main = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -6,7 +6,7 @@ vat main = {
         });
     },
     save : function () {
-        var = data = {
+        var data = {
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
