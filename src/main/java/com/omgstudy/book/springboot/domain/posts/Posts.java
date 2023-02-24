@@ -1,5 +1,6 @@
 package com.omgstudy.book.springboot.domain.posts;
 
+import com.omgstudy.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,11 +9,17 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
+@SequenceGenerator(
+        name="POSTS_SEQ_GEN",
+        sequenceName = "POSTS_SEQ",
+        initialValue = 1,
+        allocationSize=1
+)
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POSTS_SEQ_GEN")
     private Long id;
 
     @Column(length = 500 ,nullable = false)
