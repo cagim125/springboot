@@ -9,17 +9,17 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@SequenceGenerator(
-        name="POSTS_SEQ_GEN",
-        sequenceName = "POSTS_SEQ",
-        initialValue = 1,
-        allocationSize=1
-)
+//@SequenceGenerator(
+//        name="POSTS_SEQ_GEN",
+//        sequenceName = "POSTS_SEQ",
+//        initialValue = 1,
+//        allocationSize=1
+//)
 @Entity
 public class Posts extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POSTS_SEQ_GEN")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 500 ,nullable = false)
