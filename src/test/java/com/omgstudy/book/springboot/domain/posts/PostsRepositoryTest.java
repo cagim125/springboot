@@ -15,10 +15,12 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostsRepositoryTest {
-
+    
+    // PostRepository 객체 주입
     @Autowired
     PostsRepository postsRepository;
 
+    // Junit 단위 테스트가 끝날 떄 수행되는 메소드
     @After
     public void cleanup() {
         postsRepository.deleteAll();
@@ -30,6 +32,8 @@ public class PostsRepositoryTest {
         String title = "test_title";
         String content = "test_content";
 
+        // 테이블 posts에 insert/update 쿼리를 실행합니다.
+        // id 값이 있다면 update가, 없다면 insert 쿼리가 실행됩니다.
         postsRepository.save(Posts.builder()
                 .title(title)
                 .content(content)
